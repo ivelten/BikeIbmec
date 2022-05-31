@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.bikeibmec.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_cadastro_clientes"
+        android:name="com.example.bikeibmec.ui.cadastro_clientes.CadastroClientesFragment"
+        android:label="@string/menu_cadastro_clientes"
+        tools:layout="@layout/fragment_cadastro_clientes" />
+
+    <fragment
+        android:id="@+id/nav_pedaladas"
+        android:name="com.example.bikeibmec.ui.pedaladas.PedaladasFragment"
+        android:label="@string/menu_pedaladas"
+        tools:layout="@layout/fragment_pedaladas" />
+
+    <fragment
+        android:id="@+id/nav_agendamentos"
+        android:name="com.example.bikeibmec.ui.agendamentos.AgendamentosFragment"
+        android:label="@string/menu_agendamentos"
+        tools:layout="@layout/fragment_agendamentos" />
+
+    <fragment
+        android:id="@+id/nav_programa_milhas"
+        android:name="com.example.bikeibmec.ui.programa_milhas.ProgramaMilhasFragment"
+        android:label="@string/menu_programa_milhas"
+        tools:layout="@layout/fragment_programa_milhas" />
+
+    <fragment
+        android:id="@+id/nav_missao"
+        android:name="com.example.bikeibmec.ui.missao.MissaoFragment"
+        android:label="@string/menu_missao"
+        tools:layout="@layout/fragment_missao" />
+
+    <fragment
+        android:id="@+id/nav_sobre"
+        android:name="com.example.bikeibmec.ui.sobre.SobreFragment"
+        android:label="@string/menu_sobre"
+        tools:layout="@layout/fragment_sobre" />
+</navigation>

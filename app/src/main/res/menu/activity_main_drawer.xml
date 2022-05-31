@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_cadastro_clientes"
+            android:icon="@drawable/ic_menu_cadastro_clientes"
+            android:title="@string/menu_cadastro_clientes" />
+        <item
+            android:id="@+id/nav_pedaladas"
+            android:icon="@drawable/ic_menu_pedaladas"
+            android:title="@string/menu_pedaladas" />
+        <item
+            android:id="@+id/nav_agendamentos"
+            android:icon="@drawable/ic_menu_agendamentos"
+            android:title="@string/menu_agendamentos"/>
+        <item
+            android:id="@+id/nav_programa_milhas"
+            android:icon="@drawable/ic_menu_programa_milhas"
+            android:title="@string/menu_programa_milhas" />
+        <item
+            android:id="@+id/nav_missao"
+            android:icon="@drawable/ic_menu_missao"
+            android:title="@string/menu_missao" />
+        <item
+            android:id="@+id/nav_sobre"
+            android:icon="@drawable/ic_menu_sobre"
+            android:title="@string/menu_sobre" />
+    </group>
+</menu>
