@@ -13,7 +13,7 @@ Os fragments ja estao criados, faltando apenas implementar os fragments (e layou
 - Menu: Luis Mattos
 - Home: 
 - Agendamentos: 
-- Cadastro de Clientes: 
+- Cadastro de Clientes: Luis Mattos
 - Missao: 
 - Pedaladas: 
 - Programa Milhas: 
