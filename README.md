@@ -37,7 +37,7 @@ Os fragments ja estao criados, faltando apenas implementar os fragments (e layou
   - [ ] apresentando um texto de Boas-vindas e falando sobre a possibilidade de utilização de bikes pelos alunos da Ibmec.
   - [ ] Esta interface deve ter um botão para uma segunda Activity de cadastro do aluno;
 - [ ] 05
-  - [ ] Na segunda Activity(CadastroDadosPessoaisActitvity), desenvolva uma interface para realizar o cadastro do aluno com os seguintes dados:
+  - [x] Na segunda Activity(CadastroDadosPessoaisActitvity), desenvolva uma interface para realizar o cadastro do aluno com os seguintes dados:
   ```
     Aluno {
         matricula,
@@ -56,6 +56,8 @@ Os fragments ja estao criados, faltando apenas implementar os fragments (e layou
         },
     }
   ```
+  - [ ] Criar mascara para os inputs do form, quando necessario
+  - [ ] Realizar uma validacao dos dados ao submeter o formulario
   - [ ] Após o preenchimento dos dados na segunda activity, uma terceira acitivity deve ser chamada
 - [ ] 06. A terceira acitivity deve
   - [ ] apresentar os dados informados e
@@ -82,5 +84,6 @@ Os fragments ja estao criados, faltando apenas implementar os fragments (e layou
   - [ ] Contato. Na opção de Contatos coloque: E-mail e Site.
   - [ ] Redes Sociais. Na opção de Redes Sociais coloque: Facebook, Instagram, Twitter e Download App.
 - [ ] 10.
+  - [ ] Logo criada e importada para o projeto.
   - [ ] Coloque uma logo para a empresa.
   - [ ] No fragmento Principal, coloque o texto de Boas-vindas!
