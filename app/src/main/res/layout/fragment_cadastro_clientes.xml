@@ -1,24 +1,364 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.cadastro_clientes.CadastroClientesFragment">
+    tools:context=".ui.cadastro_clientes.CadastroClientesFragment"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_cadastro_clientes"
+<!--    <TextView-->
+<!--        android:id="@+id/text_cadastro_clientes"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:paddingVertical="@dimen/activity_vertical_margin">
+
+            <!--            matricula-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadastro_clientes_matricula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_matricula"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_nome"
+                app:layout_constraintTop_toTopOf="parent"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--            nome-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadastro_clientes_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_nome"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_sobrenome"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_matricula"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--            sobrenome-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadastro_clientes_sobrenome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_sobrenome"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_sexo_label"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_nome"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--            sexo: o Masculino; o Feminino-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cadastro_clientes_sexo_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_sexo"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_sobrenome"
+                android:text="@string/label_sexo"/>
+
+            <RadioGroup
+                android:id="@+id/cadastro_clientes_sexo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_curso"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_sexo_label">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/cadastro_clientes_sexo_feminino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_sexo_feminino"
+                    android:layout_weight="1"/>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/cadastro_clientes_sexo_masculino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_sexo_masculino"
+                    android:layout_weight="1"/>
+
+            </RadioGroup>
+
+            <!--            Curso de Graduacao em Engenharia: [] Computação; [] Civil; [] Produção; [] Mecânica-->
+            <TableLayout
+                android:id="@+id/cadastro_clientes_curso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_celular"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_sexo">
+
+                <TableRow>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/cadastro_clientes_curso_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_curso"/>
+                </TableRow>
+
+                <TableRow>
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cadastro_clientes_curso_eng_comp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_curso_eng_comp"
+                        android:layout_weight="1"/>
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cadastro_clientes_curso_eng_civ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_curso_eng_civ"
+                        android:layout_weight="1"/>
+                </TableRow>
+
+                <TableRow>
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cadastro_clientes_curso_eng_prod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_curso_eng_prod"
+                        android:layout_weight="1"/>
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cadastro_clientes_curso_eng_mec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_curso_eng_mec"
+                        android:layout_weight="1"/>
+                </TableRow>
+
+            </TableLayout>
+
+            <!--            número do celular-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadastro_clientes_celular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_celular"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_email"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_curso"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:prefixText="+55">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--            e-mail-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadastro_clientes_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_email"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_cartao_bandeira_label"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_celular"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--            bandeira do cartão: o Elo; o Visa; o Mastercard-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cadastro_clientes_cartao_bandeira_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_cartao_bandeira"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_email"
+                android:text="@string/label_cartao_bandeira"/>
+
+            <RadioGroup
+                android:id="@+id/cadastro_clientes_cartao_bandeira"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_cartao_numero"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_cartao_bandeira_label" >
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/cadastro_clientes_cartao_bandeira_elo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_cartao_bandeira_elo"
+                    android:layout_weight="1"/>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/cadastro_clientes_cartao_bandeira_mastercard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_cartao_bandeira_mastercard"
+                    android:layout_weight="1"/>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/cadastro_clientes_cartao_bandeira_visa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_cartao_bandeira_visa"
+                    android:layout_weight="1"/>
+
+            </RadioGroup>
+
+            <!--            número do cartão-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadastro_clientes_cartao_numero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_cartao_numero"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_cartao_titular"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_cartao_bandeira"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--            nome do titular-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadastro_clientes_cartao_titular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_cartao_titular"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_data_verificacao"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_cartao_numero"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TableLayout
+                android:id="@+id/cadastro_clientes_data_verificacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_cartao_titular"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_submit">
+
+                <TableRow>
+                    <!--            data de validade-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cadastro_clientes_cartao_validade"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:hint="@string/label_cartao_validade"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        android:layout_weight="3">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--            codigo de verificacao-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cadastro_clientes_cartao_cv"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:hint="@string/label_cartao_cv"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        android:layout_weight="1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </TableRow>
+            </TableLayout>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cadastro_clientes_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_data_verificacao"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/label_submit"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
