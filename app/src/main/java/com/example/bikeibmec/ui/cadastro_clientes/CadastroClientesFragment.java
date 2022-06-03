@@ -1,23 +1,18 @@
 package com.example.bikeibmec.ui.cadastro_clientes;
 
-import androidx.lifecycle.ViewModelProvider;
-
-import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.bikeibmec.R;
 import com.example.bikeibmec.databinding.FragmentCadastroClientesBinding;
@@ -26,9 +21,11 @@ import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.radiobutton.MaterialRadioButton;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CadastroClientesFragment extends Fragment {
@@ -56,9 +53,6 @@ public class CadastroClientesFragment extends Fragment {
         });
 
         addListeners();
-
-//        final TextView textView = binding.textCadastroClientes;
-//        cadastroClientesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         return root;
     }
@@ -320,7 +314,6 @@ public class CadastroClientesFragment extends Fragment {
 
     boolean validaRegex(@NonNull TextInputLayout in, String regex){
 
-
         String s = in.getEditText() == null ? "" : String.valueOf(in.getEditText().getText());
 
         if( ! Pattern.compile(regex).
@@ -334,6 +327,33 @@ public class CadastroClientesFragment extends Fragment {
         }
 
         in.setError(null);
+
+        return true;
+    }
+
+    boolean validaRadioGroup(@NonNull RadioGroup radioGroup){
+
+        if(radioGroup.getCheckedRadioButtonId() == -1) {
+            return false;
+        }
+
+        return true;
+    }
+
+    boolean validaCheckList(@NonNull List<MaterialCheckBox> checkBoxes, int min, int max){
+
+        int nChecked = 0;
+
+        for(MaterialCheckBox checkBox : checkBoxes){
+
+            if(checkBox.isChecked()) {
+                nChecked++;
+            }
+
+        }
+
+        if(nChecked < min || nChecked > max)
+            return false;
 
         return true;
     }
@@ -356,54 +376,154 @@ public class CadastroClientesFragment extends Fragment {
 
     boolean validaMatricula(){
 
-        return valida(binding.cadastroClientesMatricula,
-                "\\d+", getResources().getInteger(R.integer.matricula_length_min), getResources().getInteger(R.integer.matricula_length_max));
+        boolean valid = valida(binding.cadastroClientesMatricula,
+                "^[^\\s]*\\d+[^\\s]*$", getResources().getInteger(R.integer.matricula_length_min), getResources().getInteger(R.integer.matricula_length_max));
+
+        return valid;
+
     }
 
     boolean validaNome(){
-        return validaNomeGenerico(binding.cadastroClientesNome,
+
+        boolean valid = validaNomeGenerico(binding.cadastroClientesNome,
                 getResources().getInteger(R.integer.nome_length_min), getResources().getInteger(R.integer.nome_length_max));
+
+        Log.d("Validacao", "Valida Nome: "+valid);
+
+        return valid;
     }
 
     boolean validaSobrenome() {
 
-        return validaNomeGenerico(binding.cadastroClientesSobrenome,
+        boolean valid = validaNomeGenerico(binding.cadastroClientesSobrenome,
                 getResources().getInteger(R.integer.sobrenome_length_min), getResources().getInteger(R.integer.sobrenome_length_max));
+
+        Log.d("Validacao", "Valida Sobrenome: "+valid);
+
+        return valid;
     }
 
-    boolean validaSexo(){ return true; }
+    boolean validaSexo(){
+        boolean valid = validaRadioGroup(binding.cadastroClientesSexo);
 
-    boolean validaCurso(){ return true; }
+        Log.d("Validacao", "Valida Sexo: "+valid);
+
+        return valid;
+    }
+
+    boolean validaCurso(){
+        List<MaterialCheckBox> checkBoxes = new ArrayList<MaterialCheckBox>();
+
+        checkBoxes.add(binding.cadastroClientesCursoEngComp);
+        checkBoxes.add(binding.cadastroClientesCursoEngCiv);
+        checkBoxes.add(binding.cadastroClientesCursoEngProd);
+        checkBoxes.add(binding.cadastroClientesCursoEngMec);
+
+        boolean valid = validaCheckList(checkBoxes, 1, checkBoxes.size());
+
+        Log.d("Validacao", "Valida Curso: "+valid);
+
+        return valid;
+    }
 
     boolean validaCelular(){
 
-        return valida(binding.cadastroClientesCelular,
+        boolean valid = valida(binding.cadastroClientesCelular,
                 "\\d+", getResources().getInteger(R.integer.celular_length_min), getResources().getInteger(R.integer.celular_length_max));
+
+        Log.d("Validacao", "Valida Celular: "+valid);
+
+        return valid;
     }
 
     boolean validaEmail(){
-        return valida(binding.cadastroClientesEmail,
+        boolean valid = valida(binding.cadastroClientesEmail,
                 "^[\\p{Alnum}_\\-.]+@([\\p{Alnum}_\\-]+\\.)+[\\p{Alnum}_\\-]{2,4}$",
                 getResources().getInteger(R.integer.email_length_min), getResources().getInteger(R.integer.email_length_max));
+
+        Log.d("Validacao", "Valida Email: "+valid);
+
+        return valid;
     }
 
-    boolean validaCartaoBandeira(){ return true; }
+    boolean validaCartaoBandeira(){
+        boolean valid = validaRadioGroup(binding.cadastroClientesCartaoBandeira);
+
+        Log.d("Validacao", "Valida Cartao Bandeira: "+valid);
+
+        return valid;
+    }
 
     boolean validaCartaoNumero(){
-        return valida(binding.cadastroClientesCartaoNumero,"\\d+",
+        boolean valid = valida(binding.cadastroClientesCartaoNumero,"\\d+",
                 getResources().getInteger(R.integer.cartao_numero_length_min), getResources().getInteger(R.integer.cartao_numero_length_max));
+
+        Log.d("Validacao", "Valida Cartao Numero: "+valid);
+
+        return valid;
     }
 
     boolean validaCartaoTitular() {
-        return validaNomeGenerico(binding.cadastroClientesCartaoTitular,
+        boolean valid = validaNomeGenerico(binding.cadastroClientesCartaoTitular,
                 getResources().getInteger(R.integer.cartao_titular_length_min), getResources().getInteger(R.integer.cartao_titular_length_max));
+
+        Log.d("Validacao", "Valida Cartao Titular: "+valid);
+
+        return valid;
     }
 
-    boolean validaValidade(){ return true; }
+    boolean validaValidade(){
+
+        TextInputLayout in = binding.cadastroClientesCartaoValidade;
+
+        boolean valid = true;
+
+        if( ! validaLength(in ,5,5) ) {
+
+            valid = false;
+        } else {
+
+            String sDate = in.getEditText() == null ? "" : String.valueOf(in.getEditText().getText());
+
+            valid = false;
+
+            try {
+
+                YearMonth.parse(sDate,
+                        DateTimeFormatter.ofPattern( "MM/uu" )
+                );
+
+                valid = true;
+
+            } catch (DateTimeParseException e) {
+                e.printStackTrace();
+                valid = false;
+            }
+        }
+
+        if(valid){
+
+            in.setError(null);
+
+        } else {
+
+            in.requestFocus();
+            in.setError("Campo deve ser valido.");
+
+        }
+
+        Log.d("Validacao", "Valida Cartao Validade: "+valid);
+
+        return valid;
+    }
 
     boolean validaCv(){
-        return valida(binding.cadastroClientesCartaoCv,"\\d+",
+        boolean valid = valida(binding.cadastroClientesCartaoCv,"\\d+",
                 getResources().getInteger(R.integer.cartao_cv_length_min), getResources().getInteger(R.integer.cartao_cv_length_max));
+
+        Log.d("Validacao", "Valida Cartao CV: "+valid);
+
+        return valid;
     }
 
     void takeAction(){

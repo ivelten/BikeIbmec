@@ -38,6 +38,7 @@
     <string name="label_cartao_numero">Numero</string>
     <string name="label_cartao_titular">Titular</string>
     <string name="label_cartao_validade">Validade</string>
+    <string name="label_cartao_validade_helper_text">MM/YY</string>
     <string name="label_cartao_cv">CVC</string>
     <string name="label_submit">Submit</string>
 

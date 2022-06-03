@@ -8,19 +8,19 @@
     tools:context=".ui.cadastro_clientes.CadastroClientesFragment"
     android:orientation="vertical">
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/text_cadastro_clientes"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="8dp"-->
-    <!--        android:layout_marginTop="8dp"-->
-    <!--        android:layout_marginEnd="8dp"-->
-    <!--        android:textAlignment="center"-->
-    <!--        android:textSize="20sp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/text_cadastro_clientes"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -296,7 +296,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/label_cartao_titular"
-                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_data_verificacao"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_cartao_validade"
                 app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_cartao_numero"
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -312,66 +312,57 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TableLayout
-                android:id="@+id/cadastro_clientes_data_verificacao"
+            <!--            data de validade-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadastro_clientes_cartao_validade"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_cartao_cv"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_cartao_titular"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_cartao_titular"
-                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_submit">
+                android:layout_marginEnd="4dp"
+                android:hint="@string/label_cartao_validade"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/cartao_validade_length_max"
+                app:helperText="@string/label_cartao_validade_helper_text">
 
-                <TableRow>
-                    <!--            data de validade-->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/cadastro_clientes_cartao_validade"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
 
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
-                        android:hint="@string/label_cartao_validade"
-                        app:endIconMode="clear_text"
-                        app:errorEnabled="true"
-                        android:layout_weight="3"
-                        app:counterEnabled="true"
-                        app:counterMaxLength="@integer/cartao_validade_length_max">
+            </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
+            <!--            codigo de verificacao-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cadastro_clientes_cartao_cv"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_submit"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_cartao_validade"
+                android:layout_marginStart="4dp"
+                android:hint="@string/label_cartao_cv"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/cartao_cv_length_max">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
 
-                    <!--            codigo de verificacao-->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/cadastro_clientes_cartao_cv"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:hint="@string/label_cartao_cv"
-                        app:endIconMode="clear_text"
-                        app:errorEnabled="true"
-                        android:layout_weight="1"
-                        app:counterEnabled="true"
-                        app:counterMaxLength="@integer/cartao_cv_length_max">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-                </TableRow>
-            </TableLayout>
-
-
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cadastro_clientes_submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_data_verificacao"
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_cartao_cv"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:text="@string/label_submit"/>

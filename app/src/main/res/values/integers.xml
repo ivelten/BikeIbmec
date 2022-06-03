@@ -2,19 +2,19 @@
 <resources>
     <integer name="matricula_length_min">4</integer>
     <integer name="matricula_length_max">@integer/matricula_length_min</integer>
-    <integer name="nome_length_min">8</integer>
-    <integer name="nome_length_max">100</integer>
+    <integer name="nome_length_min">4</integer>
+    <integer name="nome_length_max">50</integer>
     <integer name="sobrenome_length_min">@integer/nome_length_min</integer>
     <integer name="sobrenome_length_max">@integer/nome_length_max</integer>
     <integer name="celular_length_min">11</integer>
     <integer name="celular_length_max">11</integer>
     <integer name="email_length_min">8</integer>
-    <integer name="email_length_max">200</integer>
+    <integer name="email_length_max">70</integer>
     <integer name="cartao_numero_length_min">13</integer>
     <integer name="cartao_numero_length_max">16</integer>
     <integer name="cartao_titular_length_min">8</integer>
-    <integer name="cartao_titular_length_max">200</integer>
-    <integer name="cartao_validade_length_min">4</integer>
+    <integer name="cartao_titular_length_max">100</integer>
+    <integer name="cartao_validade_length_min">5</integer>
     <integer name="cartao_validade_length_max">@integer/cartao_validade_length_min</integer>
     <integer name="cartao_cv_length_min">3</integer>
     <integer name="cartao_cv_length_max">@integer/cartao_cv_length_min</integer>
