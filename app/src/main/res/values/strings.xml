@@ -32,13 +32,13 @@
     <string name="label_celular">Celular</string>
     <string name="label_email">Email</string>
     <string name="label_cartao_bandeira">Bandeira</string>
-    <string name="label_cartao_bandeira_elo">Elo</string>
+    <string name="label_cartao_bandeira_american">American Express</string>
     <string name="label_cartao_bandeira_mastercard">Mastercard</string>
     <string name="label_cartao_bandeira_visa">Visa</string>
     <string name="label_cartao_numero">Numero</string>
     <string name="label_cartao_titular">Titular</string>
     <string name="label_cartao_validade">Validade</string>
-    <string name="label_cartao_cv">CV</string>
+    <string name="label_cartao_cv">CVC</string>
     <string name="label_submit">Submit</string>
 
 </resources>

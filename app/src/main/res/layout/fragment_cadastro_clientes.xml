@@ -8,19 +8,19 @@
     tools:context=".ui.cadastro_clientes.CadastroClientesFragment"
     android:orientation="vertical">
 
-<!--    <TextView-->
-<!--        android:id="@+id/text_cadastro_clientes"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/text_cadastro_clientes"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -44,12 +44,14 @@
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:endIconMode="clear_text"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/matricula_length_max">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"/>
+                    android:inputType="numberDecimal" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,7 +66,9 @@
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:endIconMode="clear_text"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/nome_length_max">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -84,7 +88,9 @@
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:endIconMode="clear_text"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/sobrenome_length_max">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -189,7 +195,9 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
-                app:prefixText="+55">
+                app:prefixText="+55"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/celular_length_max">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -209,7 +217,9 @@
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:endIconMode="clear_text"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/email_length_max">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -239,7 +249,7 @@
                     android:id="@+id/cadastro_clientes_cartao_bandeira_elo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_cartao_bandeira_elo"
+                    android:text="@string/label_cartao_bandeira_american"
                     android:layout_weight="1"/>
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
@@ -269,7 +279,9 @@
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:endIconMode="clear_text"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/cartao_numero_length_max">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -289,7 +301,9 @@
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:endIconMode="clear_text"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/cartao_titular_length_max">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -317,12 +331,14 @@
                         android:hint="@string/label_cartao_validade"
                         app:endIconMode="clear_text"
                         app:errorEnabled="true"
-                        android:layout_weight="3">
+                        android:layout_weight="3"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="@integer/cartao_validade_length_max">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="date" />
+                            android:inputType="numberDecimal" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -336,11 +352,14 @@
                         android:hint="@string/label_cartao_cv"
                         app:endIconMode="clear_text"
                         app:errorEnabled="true"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="@integer/cartao_cv_length_max">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </TableRow>
