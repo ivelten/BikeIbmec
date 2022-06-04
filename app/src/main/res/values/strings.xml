@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">BikeIbmec</string>
+
+    <string name="error">Error</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -14,6 +17,32 @@
     <string name="menu_programa_milhas">Programa Milhas</string>
     <string name="menu_missao">Missao</string>
     <string name="menu_sobre">Sobre</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="label_matricula">Matricula</string>
+    <string name="label_nome">Nome</string>
+    <string name="label_sobrenome">Sobrenome</string>
+    <string name="label_sexo">Sexo</string>
+    <string name="label_sexo_feminino">Feminino</string>
+    <string name="label_sexo_masculino">Masculino</string>
+    <string name="label_curso">Curso</string>
+    <string name="label_curso_eng_comp">Eng. Computacao</string>
+    <string name="label_curso_eng_civ">Eng. Civil</string>
+    <string name="label_curso_eng_prod">Eng. Producao</string>
+    <string name="label_curso_eng_mec">Eng. Mecanica</string>
+    <string name="label_celular">Celular</string>
+    <string name="label_email">Email</string>
+    <string name="label_cartao_bandeira">Bandeira</string>
+    <string name="label_cartao_bandeira_american">American Express</string>
+    <string name="label_cartao_bandeira_mastercard">Mastercard</string>
+    <string name="label_cartao_bandeira_visa">Visa</string>
+    <string name="label_cartao_numero">Numero</string>
+    <string name="label_cartao_titular">Titular</string>
+    <string name="label_cartao_validade">Validade</string>
+    <string name="label_cartao_validade_helper_text">MM/YY</string>
+    <string name="label_cartao_cv">CVC</string>
+    <string name="label_submit">Submit</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="label_confirm">Confirm</string>
+
+
 </resources>
