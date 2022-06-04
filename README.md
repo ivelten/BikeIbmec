@@ -10,10 +10,10 @@ No seu trabalho deve constar: Capa com nome completo dos alunos, matrículas, no
 
 Os fragments ja estao criados, faltando apenas implementar os fragments (e layouts) das respectivcas funcionalidades...
 
-- Menu: Luis Mattos
+- Menu: Luis Mattos <DONE>
 - Home: 
 - Agendamentos: 
-- Cadastro de Clientes: Luis Mattos
+- Cadastro de Clientes: Luis Mattos <STILL WORKING>
 - Missao: 
 - Pedaladas: 
 - Programa Milhas: 
@@ -57,7 +57,7 @@ Os fragments ja estao criados, faltando apenas implementar os fragments (e layou
     }
   ```
   - [ ] Criar mascara para os inputs do form, quando necessario
-  - [ ] Realizar uma validacao dos dados ao submeter o formulario
+  - [x] Realizar uma validacao dos dados ao submeter o formulario
   - [ ] Após o preenchimento dos dados na segunda activity, uma terceira acitivity deve ser chamada
 - [ ] 06. A terceira acitivity deve
   - [ ] apresentar os dados informados e
