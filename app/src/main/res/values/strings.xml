@@ -41,5 +41,8 @@
     <string name="label_cartao_validade_helper_text">MM/YY</string>
     <string name="label_cartao_cv">CVC</string>
     <string name="label_submit">Submit</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="label_confirm">Confirm</string>
+
 
 </resources>

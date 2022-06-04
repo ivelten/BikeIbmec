@@ -15,7 +15,11 @@
         android:id="@+id/nav_cadastro_clientes"
         android:name="com.example.bikeibmec.ui.cadastro_clientes.CadastroClientesFragment"
         android:label="@string/menu_cadastro_clientes"
-        tools:layout="@layout/fragment_cadastro_clientes" />
+        tools:layout="@layout/fragment_cadastro_clientes" >
+        <action
+            android:id="@+id/action_nav_cadastro_clientes_to_cadastroClientesConfirmacaoFragment"
+            app:destination="@id/cadastroClientesConfirmacaoFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_pedaladas"
@@ -46,4 +50,13 @@
         android:name="com.example.bikeibmec.ui.sobre.SobreFragment"
         android:label="@string/menu_sobre"
         tools:layout="@layout/fragment_sobre" />
+    <fragment
+        android:id="@+id/cadastroClientesConfirmacaoFragment"
+        android:name="com.example.bikeibmec.ui.cadastro_clientes_confirmaco.CadastroClientesConfirmacaoFragment"
+        android:label="fragment_cadastro_clientes_confirmacao"
+        tools:layout="@layout/fragment_cadastro_clientes_confirmacao" >
+        <action
+            android:id="@+id/action_cadastroClientesConfirmacaoFragment_to_nav_cadastro_clientes"
+            app:destination="@id/nav_cadastro_clientes" />
+    </fragment>
 </navigation>
