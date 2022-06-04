@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/label_sobrenome"
-                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_confirmacao_sexo_label"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_confirmacao_sexo"
                 app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_nome"
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -75,94 +75,43 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--            sexo: o Masculino; o Feminino-->
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/cadastro_clientes_confirmacao_sexo_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_confirmacao_sexo"
-                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_sobrenome"
-                android:text="@string/label_sexo"/>
 
-            <RadioGroup
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/cadastro_clientes_confirmacao_sexo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:hint="@string/label_sexo"
                 app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_confirmacao_curso"
-                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_sexo_label">
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_sobrenome"
 
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/cadastro_clientes_confirmacao_sexo_feminino"
-                    android:layout_width="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:enabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_sexo_feminino"
-                    android:layout_weight="1"
-                    android:enabled="false"/>
+                    android:inputType="text"/>
 
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/cadastro_clientes_confirmacao_sexo_masculino"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_sexo_masculino"
-                    android:layout_weight="1"
-                    android:enabled="false"/>
-
-            </RadioGroup>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!--            Curso de Graduacao em Engenharia: [] Computação; [] Civil; [] Produção; [] Mecânica-->
-            <TableLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/cadastro_clientes_confirmacao_curso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:hint="@string/label_curso"
                 app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_confirmacao_celular"
-                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_sexo">
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_sexo"
 
-                <TableRow>
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/cadastro_clientes_confirmacao_curso_label"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/label_curso"/>
-                </TableRow>
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:enabled="false">
 
-                <TableRow>
-                    <com.google.android.material.checkbox.MaterialCheckBox
-                        android:id="@+id/cadastro_clientes_confirmacao_curso_eng_comp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/label_curso_eng_comp"
-                        android:layout_weight="1"
-                        android:enabled="false"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"/>
 
-                    <com.google.android.material.checkbox.MaterialCheckBox
-                        android:id="@+id/cadastro_clientes_confirmacao_curso_eng_civ"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/label_curso_eng_civ"
-                        android:layout_weight="1"
-                        android:enabled="false"/>
-                </TableRow>
-
-                <TableRow>
-                    <com.google.android.material.checkbox.MaterialCheckBox
-                        android:id="@+id/cadastro_clientes_confirmacao_curso_eng_prod"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/label_curso_eng_prod"
-                        android:layout_weight="1"
-                        android:enabled="false"/>
-
-                    <com.google.android.material.checkbox.MaterialCheckBox
-                        android:id="@+id/cadastro_clientes_confirmacao_curso_eng_mec"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/label_curso_eng_mec"
-                        android:layout_weight="1"
-                        android:enabled="false"/>
-                </TableRow>
-
-            </TableLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!--            número do celular-->
             <com.google.android.material.textfield.TextInputLayout
@@ -190,7 +139,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/label_email"
-                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_confirmacao_cartao_bandeira_label"
+                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_confirmacao_cartao_bandeira"
                 app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_celular"
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -204,47 +153,23 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--            bandeira do cartão: o Elo; o Visa; o Mastercard-->
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/cadastro_clientes_confirmacao_cartao_bandeira_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_confirmacao_cartao_bandeira"
-                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_email"
-                android:text="@string/label_cartao_bandeira"/>
-
-            <RadioGroup
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/cadastro_clientes_confirmacao_cartao_bandeira"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:hint="@string/label_cartao_bandeira"
                 app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_confirmacao_cartao_numero"
-                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_cartao_bandeira_label" >
+                app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_email"
 
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/cadastro_clientes_confirmacao_cartao_bandeira_elo"
-                    android:layout_width="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:enabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_cartao_bandeira_american"
-                    android:layout_weight="1"
-                    android:enabled="false"/>
+                    android:inputType="text"/>
 
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/cadastro_clientes_confirmacao_cartao_bandeira_mastercard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_cartao_bandeira_mastercard"
-                    android:layout_weight="1"
-                    android:enabled="false"/>
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/cadastro_clientes_confirmacao_cartao_bandeira_visa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_cartao_bandeira_visa"
-                    android:layout_weight="1"
-                    android:enabled="false"/>
-
-            </RadioGroup>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!--            número do cartão-->
             <com.google.android.material.textfield.TextInputLayout
@@ -293,7 +218,6 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
                 android:hint="@string/label_cartao_validade"
                 android:enabled="false">
 
@@ -312,7 +236,6 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@id/cadastro_clientes_confirmacao_btns"
                 app:layout_constraintTop_toBottomOf="@id/cadastro_clientes_confirmacao_cartao_validade"
-                android:layout_marginStart="4dp"
                 android:hint="@string/label_cartao_cv"
                 android:enabled="false">
 

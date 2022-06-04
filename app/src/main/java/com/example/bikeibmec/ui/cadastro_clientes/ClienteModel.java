@@ -1,8 +1,12 @@
 package com.example.bikeibmec.ui.cadastro_clientes;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ClienteModel {
+public class ClienteModel implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     private String matricula;
     private String nome;
@@ -161,4 +165,6 @@ public class ClienteModel {
                 ", cartaoCv='" + cartaoCv + '\'' +
                 '}';
     }
+
+
 }

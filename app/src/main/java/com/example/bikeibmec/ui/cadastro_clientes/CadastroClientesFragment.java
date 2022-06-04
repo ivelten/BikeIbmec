@@ -44,6 +44,8 @@ public class CadastroClientesFragment extends Fragment {
         binding = FragmentCadastroClientesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        setClients();
+
         MaterialButton materialButton = binding.cadastroClientesSubmit;
 
         materialButton.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +63,6 @@ public class CadastroClientesFragment extends Fragment {
     }
 
     void addListeners(){
-
-        //TODO radio e check
 
         binding.cadastroClientesMatricula.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
@@ -198,43 +198,59 @@ public class CadastroClientesFragment extends Fragment {
         }
 
         ClienteModel clienteModel = criaClienteModel(root);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("cliente",clienteModel);
 
-        cadastroClientesViewModel.setCliente(clienteModel);
-
-        goToConfirmationPage(root);
+        goToConfirmationPage(root, bundle);
     }
 
     ClienteModel criaClienteModel(@NonNull View root){
 
+        String sexo = null;
+        if(binding.cadastroClientesSexo.getCheckedRadioButtonId() != -1){
+            MaterialRadioButton mrbSexo = root.findViewById(binding.cadastroClientesSexo.getCheckedRadioButtonId());
+            sexo = mrbSexo.getText().toString();
+        } else {
+            sexo = "";
+        }
 
-
-        MaterialRadioButton mrbSexo = binding.cadastroClientesSexo.getCheckedRadioButtonId()==-1 ? null: root.findViewById(binding.cadastroClientesSexo.getCheckedRadioButtonId());
-        MaterialRadioButton mrbBandeira = binding.cadastroClientesCartaoBandeira.getCheckedRadioButtonId()==-1 ? null : root.findViewById(binding.cadastroClientesCartaoBandeira.getCheckedRadioButtonId());
+        String bandeira = null;
+        if(binding.cadastroClientesCartaoBandeira.getCheckedRadioButtonId() != -1){
+            MaterialRadioButton mrbBandeira = root.findViewById(binding.cadastroClientesCartaoBandeira.getCheckedRadioButtonId());
+            bandeira = mrbBandeira.getText().toString();
+        } else {
+            bandeira = "";
+        }
 
         List<String> cursos = new ArrayList<String>();
         if(binding.cadastroClientesCursoEngComp.isChecked())
-            cursos.add(String.valueOf(binding.cadastroClientesCursoEngComp.getEditableText()));
+            cursos.add(binding.cadastroClientesCursoEngComp.getText().toString());
         if(binding.cadastroClientesCursoEngCiv.isChecked())
-            cursos.add(String.valueOf(binding.cadastroClientesCursoEngCiv.getEditableText()));
+            cursos.add(binding.cadastroClientesCursoEngCiv.getText().toString());
         if(binding.cadastroClientesCursoEngProd.isChecked())
-            cursos.add(String.valueOf(binding.cadastroClientesCursoEngProd.getEditableText()));
+            cursos.add(binding.cadastroClientesCursoEngProd.getText().toString());
         if(binding.cadastroClientesCursoEngMec.isChecked())
-            cursos.add(String.valueOf(binding.cadastroClientesCursoEngMec.getEditableText()));
+            cursos.add(binding.cadastroClientesCursoEngMec.getText().toString());
 
-        return new ClienteModel(
+        ClienteModel clienteModel = new ClienteModel(
                 binding.cadastroClientesMatricula.getEditText() == null ? "" : String.valueOf(binding.cadastroClientesMatricula.getEditText().getText()),
                 binding.cadastroClientesNome.getEditText() == null ? "" : String.valueOf(binding.cadastroClientesNome.getEditText().getText()),
                 binding.cadastroClientesSobrenome.getEditText() == null ? "" : String.valueOf(binding.cadastroClientesSobrenome.getEditText().getText()),
-                String.valueOf(mrbSexo == null ? "" : mrbSexo.getEditableText()),
+                sexo,
                 cursos,
                 binding.cadastroClientesCelular.getEditText() == null ? "" : String.valueOf(binding.cadastroClientesCelular.getEditText().getText()),
                 binding.cadastroClientesEmail.getEditText() == null ? "" : String.valueOf(binding.cadastroClientesEmail.getEditText().getText()),
-                String.valueOf(mrbBandeira == null ? "" : mrbBandeira.getEditableText()),
+                bandeira,
                 binding.cadastroClientesCartaoNumero.getEditText() == null ? "" : String.valueOf(binding.cadastroClientesCartaoNumero.getEditText().getText()),
                 binding.cadastroClientesCartaoTitular.getEditText() == null ? "" : String.valueOf(binding.cadastroClientesCartaoTitular.getEditText().getText()),
                 binding.cadastroClientesCartaoValidade.getEditText() == null ? "" : String.valueOf(binding.cadastroClientesCartaoValidade.getEditText().getText()),
                 binding.cadastroClientesCartaoCv.getEditText() == null ? "" : String.valueOf(binding.cadastroClientesCartaoCv.getEditText().getText())
         );
+
+
+
+        return clienteModel;
+
     }
 
     boolean validaCliente(){
@@ -545,10 +561,79 @@ public class CadastroClientesFragment extends Fragment {
         toast.show();
     }
 
-    void goToConfirmationPage(@NonNull View container){
+    void goToConfirmationPage(@NonNull View container, Bundle bundle){
         FragmentTransaction ft = getParentFragmentManager().beginTransaction();
-        ft.replace(container.getId(), new CadastroClientesConfirmacaoFragment());
+
+        CadastroClientesConfirmacaoFragment cadastroClientesConfirmacaoFragment = new CadastroClientesConfirmacaoFragment();
+
+        cadastroClientesConfirmacaoFragment.setArguments(bundle);
+
+        ft.replace(container.getId(), cadastroClientesConfirmacaoFragment);
         ft.commit();
+    }
+
+    void setClients(){
+
+        Bundle bundle = this.getArguments();
+
+        if(bundle != null){
+
+            ClienteModel clienteModel = (ClienteModel) bundle.get("cliente");
+
+            binding.cadastroClientesMatricula.getEditText()
+                    .setText(clienteModel.getMatricula());
+
+            binding.cadastroClientesNome.getEditText()
+                    .setText(clienteModel.getNome());
+
+            binding.cadastroClientesSobrenome.getEditText()
+                    .setText(clienteModel.getSobrenome());
+
+            if(binding.cadastroClientesSexoMasculino.getText().toString().equals(clienteModel.getSexo()))
+                binding.cadastroClientesSexoMasculino.setChecked(true);
+            else
+                binding.cadastroClientesSexoFeminino.setChecked(true);
+
+            //TODO curso
+            for(String curso:clienteModel.getCursos()){
+                if(curso.equals(binding.cadastroClientesCursoEngComp.getText().toString()))
+                    binding.cadastroClientesCursoEngComp.setChecked(true);
+                else if(curso.equals(binding.cadastroClientesCursoEngCiv.getText().toString()))
+                    binding.cadastroClientesCursoEngCiv.setChecked(true);
+                else if(curso.equals(binding.cadastroClientesCursoEngProd.getText().toString()))
+                    binding.cadastroClientesCursoEngProd.setChecked(true);
+                else if(curso.equals(binding.cadastroClientesCursoEngMec.getText().toString()))
+                    binding.cadastroClientesCursoEngMec.setChecked(true);
+            }
+
+            binding.cadastroClientesCelular.getEditText()
+                    .setText(clienteModel.getCelular());
+
+            binding.cadastroClientesEmail.getEditText()
+                    .setText(clienteModel.getEmail());
+
+            //TODO cartao bandeira
+            String cartaoBandeira = clienteModel.getCartaoBandeira();
+            if(cartaoBandeira.equals(binding.cadastroClientesCartaoBandeiraElo.getText().toString()))
+                binding.cadastroClientesCartaoBandeiraElo.setChecked(true);
+            if(cartaoBandeira.equals(binding.cadastroClientesCartaoBandeiraMastercard.getText().toString()))
+                binding.cadastroClientesCartaoBandeiraMastercard.setChecked(true);
+            if(cartaoBandeira.equals(binding.cadastroClientesCartaoBandeiraVisa.getText().toString()))
+                binding.cadastroClientesCartaoBandeiraVisa.setChecked(true);
+
+            binding.cadastroClientesCartaoNumero.getEditText()
+                    .setText(clienteModel.getCartaoNumero());
+
+            binding.cadastroClientesCartaoTitular.getEditText()
+                    .setText(clienteModel.getCartaoTitular());
+
+            binding.cadastroClientesCartaoValidade.getEditText()
+                    .setText(clienteModel.getCartaoValidade());
+
+            binding.cadastroClientesCartaoCv.getEditText()
+                    .setText(clienteModel.getCartaoCv());
+        }
+
     }
 
 }
