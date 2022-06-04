@@ -13,7 +13,7 @@ Os fragments ja estao criados, faltando apenas implementar os fragments (e layou
 - Menu: Luis Mattos <DONE>
 - Home: 
 - Agendamentos: 
-- Cadastro de Clientes: Luis Mattos <STILL WORKING>
+- Cadastro de Clientes: Luis Mattos <DONE>
 - Missao: 
 - Pedaladas: 
 - Programa Milhas: 
@@ -58,12 +58,12 @@ Os fragments ja estao criados, faltando apenas implementar os fragments (e layou
   ```
   - [ ] Criar mascara para os inputs do form, quando necessario
   - [x] Realizar uma validacao dos dados ao submeter o formulario
-  - [ ] Após o preenchimento dos dados na segunda activity, uma terceira acitivity deve ser chamada
-- [ ] 06. A terceira acitivity deve
-  - [ ] apresentar os dados informados e
-  - [ ] requisitar confirmação pelo usuário.
-  - [ ] Caso os dados estejam corretos: o usuário deve clicar em um botão OK e receber uma mensagem “Dados Corretos!” (utilize um Toast).
-  - [ ] Caso contrário, o usuário deve clicar em um botão CANCELAR e a aplicação deve retornar para a Activity anterior;
+  - [x] Após o preenchimento dos dados na segunda activity, uma terceira acitivity deve ser chamada
+- [x] 06. A terceira acitivity deve
+  - [x] apresentar os dados informados e
+  - [x] requisitar confirmação pelo usuário.
+  - [x] Caso os dados estejam corretos: o usuário deve clicar em um botão OK e receber uma mensagem “Dados Corretos!” (utilize um Toast).
+  - [x] Caso contrário, o usuário deve clicar em um botão CANCELAR e a aplicação deve retornar para a Activity anterior;
 - [ ] 07. Desenvolva as interfaces para as seguintes funcionalidades que devem estar disponíveis para serem acessadas através de Botões na MainActivity):
   - [ ] Pedaladas (Históricos de utilização das bicicletas),
   - [ ] Agendamentos,
@@ -74,7 +74,7 @@ Os fragments ja estao criados, faltando apenas implementar os fragments (e layou
 
 - [x] 08. Desenvolva o projeto BikeIbmec utilizando um Navigation Drawer, com as seguintes opções de Menu:
   - [x] Menu 
-  - [ ] Cadastro Clientes,
+  - [x] Cadastro Clientes,
   - [ ] Pedaladas,
   - [ ] Agendamentos,
   - [ ] Programa Milhas,
@@ -84,6 +84,6 @@ Os fragments ja estao criados, faltando apenas implementar os fragments (e layou
   - [ ] Contato. Na opção de Contatos coloque: E-mail e Site.
   - [ ] Redes Sociais. Na opção de Redes Sociais coloque: Facebook, Instagram, Twitter e Download App.
 - [ ] 10.
-  - [ ] Logo criada e importada para o projeto.
+  - [x] Logo criada e importada para o projeto.
   - [ ] Coloque uma logo para a empresa.
   - [ ] No fragmento Principal, coloque o texto de Boas-vindas!
