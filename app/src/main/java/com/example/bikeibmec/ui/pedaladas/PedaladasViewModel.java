@@ -5,14 +5,17 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class PedaladasViewModel extends ViewModel {
-    private final MutableLiveData<String> mText;
+    private final MutableLiveData<PedaladasModel> mPedaladas;
 
     public PedaladasViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is pedaladas fragment");
+        mPedaladas = new MutableLiveData<>();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public PedaladasViewModel(PedaladasModel pedaladas) {
+        mPedaladas = new MutableLiveData<>(pedaladas);
     }
+
+    public LiveData<PedaladasModel> getPedaladas() { return mPedaladas; }
+
+    public void setPedaladas(PedaladasModel pedaladas) { mPedaladas.setValue(pedaladas); }
 }

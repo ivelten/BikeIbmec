@@ -103,7 +103,6 @@ public class CadastroClientesFragment extends Fragment {
             public void afterTextChanged(Editable editable) {}
         });
 
-        // new PhoneNumberFormattingTextWatcher("BR")
         binding.cadastroClientesCelular.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}

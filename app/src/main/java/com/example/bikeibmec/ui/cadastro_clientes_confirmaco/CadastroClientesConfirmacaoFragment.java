@@ -20,7 +20,6 @@ public class CadastroClientesConfirmacaoFragment extends Fragment {
 
     private FragmentCadastroClientesConfirmacaoBinding binding;
     private CadastroClientesConfirmacaoViewModel cadastroClientesConfirmacaoViewModel;
-//    private CadastroClientesViewModel cadastroClientesViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
