@@ -12,10 +12,6 @@ public class PedaladaModel {
     private Date startDate;
     private Date endDate;
 
-    public PedaladaModel() {
-
-    }
-
     public PedaladaModel(
         double startLat,
         double startLon,

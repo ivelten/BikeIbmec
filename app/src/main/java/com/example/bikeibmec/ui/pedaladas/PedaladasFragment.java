@@ -39,7 +39,6 @@ import java.util.Random;
 public class PedaladasFragment extends Fragment implements OnMapReadyCallback {
 
     private FragmentPedaladasBinding binding;
-    private GoogleMap googleMap;
     private MapView mapView;
     private PedaladasViewModel pedaladasViewModel;
     private Marker currentStartMarker;
@@ -67,7 +66,7 @@ public class PedaladasFragment extends Fragment implements OnMapReadyCallback {
         PedaladasModel model;
 
         if (bundle == null) {
-            List<PedaladaModel> pedaladas = new ArrayList<PedaladaModel>();
+            List<PedaladaModel> pedaladas = new ArrayList<>();
             Random random = new Random();
 
             double startLat = -22.950857855820743;
@@ -88,8 +87,8 @@ public class PedaladasFragment extends Fragment implements OnMapReadyCallback {
                 end.add(Calendar.MINUTE, random.nextInt(120) + 50);
 
                 pedaladas.add(new PedaladaModel(
-                        startLat + day * 0.005,
-                        startLon + day * 0.005,
+                        startLat + day * 0.003,
+                        startLon + day * 0.003,
                         endLat + day * 0.003,
                         endLon + day * 0.003,
                         start.getTime(),
@@ -103,7 +102,7 @@ public class PedaladasFragment extends Fragment implements OnMapReadyCallback {
             model = (PedaladasModel)bundle.get("pedaladas");
         }
 
-        ArrayAdapter<PedaladaModel> adapter = new ArrayAdapter<PedaladaModel>(
+        ArrayAdapter<PedaladaModel> adapter = new ArrayAdapter<>(
                 this.getActivity(),
                 android.R.layout.simple_list_item_1,
                 model.getPedaladas());
@@ -155,7 +154,6 @@ public class PedaladasFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        this.googleMap = googleMap;
         setPedaladas();
 
         binding.listView.setClickable(true);

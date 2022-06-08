@@ -4,15 +4,21 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.bikeibmec.ui.pedaladas.PedaladasModel;
+
 public class AgendamentosViewModel extends ViewModel {
-    private final MutableLiveData<String> mText;
+
+    private final MutableLiveData<AgendamentosModel> mAgendamentos;
 
     public AgendamentosViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is Agendamento fragment");
+        mAgendamentos = new MutableLiveData<>();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public AgendamentosViewModel(AgendamentosModel agendamentos) {
+        mAgendamentos = new MutableLiveData<>(agendamentos);
     }
+
+    public LiveData<AgendamentosModel> getAgendamentos() { return mAgendamentos; }
+
+    public void setAgendamentos(AgendamentosModel agendamentos) { mAgendamentos.setValue(agendamentos); }
 }

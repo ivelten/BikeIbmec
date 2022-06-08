@@ -6,10 +6,6 @@ public class PedaladasModel {
 
     private List<PedaladaModel> pedaladas;
 
-    public PedaladasModel() {
-
-    }
-
     public PedaladasModel(List<PedaladaModel> pedaladas) {
         this.pedaladas = pedaladas;
     }
