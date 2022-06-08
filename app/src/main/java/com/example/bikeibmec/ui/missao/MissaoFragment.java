@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 
@@ -30,8 +33,20 @@ public class MissaoFragment extends Fragment {
         binding = FragmentMissaoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textMissao;
-        missaoViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        String videoID = "PcKXjFCC2f0";
+
+        binding.webView.getSettings().setJavaScriptEnabled(true);
+
+        binding.webView.getSettings().setAllowContentAccess(true);
+        WebSettings webSettings = binding.webView.getSettings();
+        webSettings.setPluginState(WebSettings.PluginState.ON);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setLoadWithOverviewMode(true);
+        binding.webView.canGoBack();
+        binding.webView.setWebViewClient(new WebViewClient());
+
+        binding.webView.loadUrl("http://www.youtube.com/embed/" + videoID + "?autoplay=1&vq=small");
+
         return root;
     }
 
