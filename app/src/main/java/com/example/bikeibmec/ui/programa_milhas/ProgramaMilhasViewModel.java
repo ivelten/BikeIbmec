@@ -5,14 +5,14 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class ProgramaMilhasViewModel extends ViewModel {
-    private final MutableLiveData<String> mText;
+    private final MutableLiveData<String> mPoints;
 
     public ProgramaMilhasViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is Programa Milhas fragment");
+        mPoints = new MutableLiveData<>();
+        mPoints.setValue("1.236");
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<String> getPoints() {
+        return mPoints;
     }
 }

@@ -47,6 +47,13 @@
     <string name="local">Local</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="milhas">Milhas:</string>
+    <string name="magalu">Magalu</string>
+    <string name="americanas">Americanas</string>
+    <string name="netshoes">Netshoes</string>
+    <string name="ponto">Ponto</string>
+    <string name="renner">Renner</string>
+    <string name="centauro">Centauro</string>
 
 
 </resources>
