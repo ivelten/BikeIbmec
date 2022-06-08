@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.example.bikeibmec.R;
 import com.example.bikeibmec.databinding.FragmentSobreBinding;
+import com.example.bikeibmec.ui.FragmentAdapter;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class SobreFragment extends Fragment {
 
@@ -26,10 +28,21 @@ public class SobreFragment extends Fragment {
                 new ViewModelProvider(this).get(SobreViewModel.class);
 
         binding = FragmentSobreBinding.inflate(inflater, container, false);
+
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSobre;
-        sobreViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(this);
+
+        fragmentAdapter.insertFragment(new ContatoFragment(), "Contato");
+        fragmentAdapter.insertFragment(new RedesSociaisFragment(), "Redes Sociais");
+
+        binding.viewPager.setAdapter(fragmentAdapter);
+
+        new TabLayoutMediator(binding.tabLayout, binding.viewPager, (tab, position) -> {
+           String title = fragmentAdapter.getFragmentTitle(position);
+           tab.setText(title);
+        }).attach();
+
         return root;
     }
 

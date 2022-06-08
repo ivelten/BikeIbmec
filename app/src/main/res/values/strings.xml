@@ -54,6 +54,16 @@
     <string name="ponto">Ponto</string>
     <string name="renner">Renner</string>
     <string name="centauro">Centauro</string>
+    <string name="e_mail">E-mail</string>
+    <string name="bike_veigadealmeida_br">bike@veigadealmeida.br</string>
+    <string name="enviar_e_mail">Enviar e-mail</string>
+    <string name="https_uva_br">https://uva.br/</string>
+    <string name="website">WebSite</string>
+    <string name="ir_para_o_website">Ir para o WebSite</string>
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="twitter">Twitter</string>
+    <string name="download_app">Download App</string>
 
 
 </resources>
